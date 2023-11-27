@@ -32,7 +32,7 @@ import base64
 import datetime as datetime_
 import decimal as decimal_
 from lxml import etree as etree_
-
+from .exportador import Arquivo
 
 Validate_simpletypes_ = True
 SaveElementTreeNode = True
@@ -1027,7 +1027,8 @@ class NFeLoteEnviarArquivo(GeneratedsSuper):
         self.NomeArquivoRPS_nsprefix_ = None
         self.ApenasValidaArq = ApenasValidaArq
         self.ApenasValidaArq_nsprefix_ = None
-        self.ArquivoRPSBase64 = ArquivoRPSBase64
+        # self.ArquivoRPSBase64 = ArquivoRPSBase64
+        self.ArquivoRPSBase64 = Arquivo.exportar_txt("rps_transmissao.txt")
         self.ArquivoRPSBase64_nsprefix_ = None
     def factory(*args_, **kwargs_):
         if CurrentSubclassModule_ is not None:
